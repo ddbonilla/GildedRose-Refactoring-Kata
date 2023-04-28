@@ -47,11 +47,13 @@ class Shop {
   }
 
   handleBackstage(item) {
-    if (item.sellDateBy === 0 && item.quality < MAX_QUAL) {
+    if (item.sellDateBy === 0) {
       return (item.quality = 0);
-    } else if (item.sellDateBy <= 5 && item.quality < MAX_QUAL) {
+    }
+
+    if (item.sellDateBy <= 5 && item.quality < MAX_QUAL) {
       return (item.quality += 3);
-    } else if (item.quality < MAX_QUAL) {
+    } else {
       return (item.quality += 2);
     }
   }
